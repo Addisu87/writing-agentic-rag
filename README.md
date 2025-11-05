@@ -8,7 +8,7 @@ This is a simple API that uses CrewAI and LitServe to create a 100% private Agen
 2. Install the dependencies:
 
 ```bash
-uv add pydantic-ai pyton-dotenv litserve openai
+uv add pydantic-ai pyton-dotenv litserve
 
 3. Run the server:
 
@@ -26,13 +26,6 @@ python client.py --query "What is the Qwen3?"
 ```bash
     curl http://localhost:8000/api/v1/health
 ``` 
-
-# Process query
-```bash
-curl -X POST "http://localhost:8000/api/v1/query" \
-     -H "Content-Type: application/json" \
-     -d '{"query": "What are the latest developments in AI?"}'
-```
 
 ## Contribution
 

@@ -7,6 +7,7 @@ class Settings(BaseSettings):
 
     DEEPSEEK_API_KEY: str | None = None
     SERPER_API_KEY: str | None = None
+    LOGFIRE_WRITE_TOKEN: str | None = None
     API_HOST: str = "0.0.0.0"
     API_PORT: int = 8000
     DEBUG: bool = False

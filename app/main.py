@@ -7,8 +7,9 @@ from app.core.config import settings
 from app.api.endpoints import router
 
 
-logfire.configure()
+logfire.configure(token=settings.LOGFIRE_WRITE_TOKEN)
 logfire.instrument_pydantic()
+logfire.instrument_pydantic_ai()
 
 
 @asynccontextmanager
