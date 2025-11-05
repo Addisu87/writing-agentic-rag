@@ -51,7 +51,7 @@ app = create_app()
 def start():
     """Start the FastAPI server"""
     uvicorn.run(
-        "agentic_rag.main:app",
+        "app.main:app",
         host=settings.API_HOST,
         port=settings.API_PORT,
         reload=settings.DEBUG,

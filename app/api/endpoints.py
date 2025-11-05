@@ -29,10 +29,7 @@ async def process_query(
             research_insights, request.query, writer_agent
         )
 
-        return QueryResponse(
-            output=final_response,
-            research_insights=research_insights
-        )
+        return QueryResponse(output=final_response, research_insights=research_insights)
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error processing query: {str(e)}")

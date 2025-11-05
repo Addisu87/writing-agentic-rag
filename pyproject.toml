@@ -10,6 +10,7 @@ dependencies = [
     "pydantic-ai[logfire]>=1.10.0",
     "pydantic-settings>=2.1.0",
     "python-dotenv>=1.2.1",
+    "httpx>=0.28.1",
 ]
 
 [project.scripts]
