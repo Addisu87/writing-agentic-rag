@@ -7,16 +7,17 @@ requires-python = ">=3.13.0"
 dependencies = [
     "fastapi>=0.104.1",
     "uvicorn[standard]>=0.24.0",
-    "pydantic-ai>=1.10.0",
+    "pydantic-ai[logfire]>=1.10.0",
     "pydantic-settings>=2.1.0",
     "python-dotenv>=1.2.1",
-    "requests>=2.31.0",
 ]
 
 [project.scripts]
-agentic-rag = "agentic_rag.main:main"
-agentic-rag-client = "agentic_rag.clients.client:main"
+agentic-rag = "app.main:start"
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=45.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["app"]

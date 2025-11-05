@@ -1,17 +1,18 @@
-from pydantic_ai.models.openai import OpenAIChatModel
+from pydantic_ai.models.openai import OpenAIResponsesModel
 from pydantic_ai.providers.deepseek import DeepSeekProvider
 
-from ..config.settings import settings
+from app.core.config import settings
+
 
 def create_llm_model():
     """Create and return a reusable LLM model instance"""
-    return OpenAIChatModel(
-        'deepseek-chat',
+    return OpenAIResponsesModel(
+        "deepseek-v3",
         provider=DeepSeekProvider(
-            api_key=settings.deepseek_api_key,
-            base_url="https://api.deepseek.com/v1"
-        )  
+            api_key=settings.DEEPSEEK_API_KEY
+        ),
     )
+
 
 # Create a singleton instance to reuse across the application
 llm_model = create_llm_model()

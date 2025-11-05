@@ -1,15 +1,25 @@
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
+from functools import lru_cache
+
 
 class Settings(BaseSettings):
     """Application settings with environment variables"""
-    deepseek_api_key: str
-    serper_api_key: str
-    api_host: str = "0.0.0.0"
-    api_port: int = 8000
-    debug: bool = False
-    
-    class Config:
-        env_file = ".env"
-        case_sensitive = False
 
-settings = Settings()
+    DEEPSEEK_API_KEY: str | None = None
+    SERPER_API_KEY: str | None = None
+    API_HOST: str = "0.0.0.0"
+    API_PORT: int = 8000
+    DEBUG: bool = False
+
+    model_config = SettingsConfigDict(
+        env_file=".env", env_file_encoding="utf-8", case_sensitive=True
+    )
+
+
+@lru_cache
+def get_settings() -> Settings:
+    """Get cached settings instance"""
+    return Settings()
+
+
+settings = get_settings()
